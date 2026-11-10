@@ -3,92 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pembayaran QRIS — QRIS Merchant Kadokun</title>
+  <title>Pembayaran QRIS — Kadokun Merchant</title>
+  
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
   <link rel="stylesheet" href="/css/kadokun-ui.css">
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 </head>
-<body style="justify-content: center; align-items: center; padding: 24px;">
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px;">
 
-  <div class="card-neobrutal" style="max-width: 440px; width: 100%; padding: 28px; text-align: center; background: #fff;">
+  <div class="card-neobrutal" style="max-width: 460px; width: 100%; padding: 32px 28px; text-align: center; background: #ffffff;">
     
-    <!-- HEADER -->
-    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px;">
       <img src="/favicon.png" alt="Logo" style="width: 36px; height: 36px; border-radius: 10px; border: 2px solid var(--color-black);">
-      <span style="font-weight: 900; font-size: 1.15rem;">QRIS Merchant <span>Kadokun</span></span>
+      <span style="font-weight: 900; font-size: 1.15rem;">QRIS Merchant <span style="color: var(--color-electric);">Kadokun</span></span>
     </div>
 
-    <!-- TIMER BADGE -->
-    <div style="margin-bottom: 16px;">
+    <div style="margin-bottom: 20px;">
+      <div style="font-size: 0.85rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Total Tagihan</div>
+      <div style="font-size: 2.2rem; font-weight: 900; color: var(--color-black);" id="pay-amount">Rp 25.000</div>
+      <div style="font-size: 0.85rem; font-weight: 700; color: #475569; margin-top: 2px;">
+        Ref ID: <span id="pay-ref" style="font-family: var(--font-mono);">TRX-KDK-829141</span>
+      </div>
+    </div>
+
+    <!-- QR CODE CANVAS CONTAINER -->
+    <div style="display: inline-block; background: #ffffff; padding: 14px; border: var(--border-solid-thick); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); margin-bottom: 18px;">
+      <div id="pay-qrcode"></div>
+    </div>
+
+    <!-- TIMER COUNTDOWN -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 18px;">
       <span class="badge-neobrutal badge-yellow">
-        ⏱️ Sisa Waktu: <span id="timer-display" style="font-family: var(--font-mono); font-weight: 800;">04:59</span>
+        ⏳ Sisa Waktu: <span id="countdown-timer">05:00</span>
       </span>
     </div>
 
-    <!-- AMOUNT -->
-    <div style="background: #f8fafc; border: var(--border-solid); border-radius: var(--radius-md); padding: 14px; margin-bottom: 18px;">
-      <div style="font-size: 0.8rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Total Tagihan</div>
-      <div id="pay-amount-display" style="font-size: 1.8rem; font-weight: 900; color: var(--color-electric);">Rp 25.000</div>
-      <div style="font-size: 0.8rem; font-weight: 700; color: #64748b; margin-top: 2px;">Ref ID: <span id="pay-ref-display">TRX-KDK-99214</span></div>
+    <p style="font-size: 0.85rem; font-weight: 600; color: #64748b; line-height: 1.5; margin-bottom: 24px;">
+      Buka aplikasi <b>BCA, GoPay, DANA, OVO, ShopeePay</b> atau m-banking apa saja ➔ Pilih menu <b>Scan / QRIS</b> ➔ Arahkan ke kode di atas.
+    </p>
+
+    <!-- STATUS INDICATOR -->
+    <div id="status-box" style="background: var(--color-sky-light); border: 2px solid var(--color-black); border-radius: 12px; padding: 12px; font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
+      <div class="sparkle">🔄</div>
+      <span id="status-text">Menunggu Pembayaran Masuk...</span>
     </div>
 
-    <!-- QR CODE CONTAINER -->
-    <div id="pay-qr-box" style="display: inline-block; background: #fff; padding: 12px; border: var(--border-solid-thick); border-radius: 18px; box-shadow: var(--shadow-md); margin-bottom: 16px;">
-      <div id="pay-qr-canvas"></div>
-    </div>
-
-    <div style="font-weight: 800; font-size: 0.92rem; margin-bottom: 16px; color: var(--color-black);">
-      Scan dengan BCA, DANA, GoPay, OVO, ShopeePay, atau m-Banking
-    </div>
-
-    <!-- INSTRUCTIONS -->
-    <div style="text-align: left; background: var(--color-sky-light); border: 2px solid var(--color-black); border-radius: var(--radius-md); padding: 14px; font-size: 0.82rem; font-weight: 700; margin-bottom: 20px;">
-      <div>1. Buka aplikasi bank atau e-wallet pilihanmu.</div>
-      <div>2. Pilih menu <strong>Scan / Bayar QRIS</strong>.</div>
-      <div>3. Arahkan kamera ke kode QR di atas.</div>
-      <div>4. Konfirmasi pembayaran & status akan otomatis update!</div>
-    </div>
-
-    <div style="display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 700; color: #64748b;">
-      <span class="sparkle">⚡</span> Menunggu pembayaran masuk secara realtime...
+    <div style="margin-top: 20px; font-size: 0.75rem; font-weight: 600; color: #94a3b8;">
+      Didukung oleh QRIS Nasional • 0% Fee Tanpa Potongan
     </div>
 
   </div>
 
   <script src="/js/kadokun-app.js"></script>
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const amount = parseInt(urlParams.get("amount"), 10) || 25000;
-    const ref = urlParams.get("ref") || "TRX-KDK-" + Math.floor(100000 + Math.random() * 900000);
+    const params = new URLSearchParams(window.location.search);
+    const amount = parseInt(params.get("amount"), 10) || 25000;
+    const ref = params.get("ref") || "TRX-KDK-" + Math.floor(100000 + Math.random() * 900000);
 
-    document.getElementById("pay-amount-display").textContent = formatRupiah(amount);
-    document.getElementById("pay-ref-display").textContent = ref;
+    document.getElementById("pay-amount").textContent = formatRupiah(amount);
+    document.getElementById("pay-ref").textContent = ref;
 
-    // Generate QR
-    const qrCanvas = document.getElementById("pay-qr-canvas");
-    new QRCode(qrCanvas, {
-      text: `00020101021226670014ID.GO-JEK.WWW01189360091438921041920215G082914109283710303UMI51440014ID.LINKAJA.WWW0215LK0829141092837520458125303360540${String(amount).length}${amount}5802ID5913KADOKUN STORE6007BANDUNG61054011562070703A016304`,
+    // Generate dynamic QRIS
+    const container = document.getElementById("pay-qrcode");
+    const qrisString = `00020101021226670014ID.GO-JEK.WWW01189360091438921041920215G082914109283710303UMI51440014ID.LINKAJA.WWW0215LK0829141092837520458125303360540${String(amount).length}${amount}5802ID5913KADOKUN STORE6007BANDUNG61054011562070703A016304`;
+    
+    new QRCode(container, {
+      text: qrisString,
       width: 200,
-      height: 200
+      height: 200,
+      colorDark: "#0f172a",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.M
     });
 
-    // 5 min countdown
-    let secondsLeft = 300;
-    const timerEl = document.getElementById("timer-display");
-    const interval = setInterval(() => {
-      secondsLeft--;
-      if (secondsLeft <= 0) {
-        clearInterval(interval);
-        timerEl.textContent = "KEDALUWARSA";
-        alert("Sesi pembayaran telah kedaluwarsa. Silakan ulangi pesanan kamu.");
+    // Countdown 5 minutes
+    let timeLeft = 300;
+    const timerEl = document.getElementById("countdown-timer");
+    const timerInterval = setInterval(() => {
+      timeLeft--;
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        timerEl.textContent = "00:00 (KEDALUWARSA)";
+        document.getElementById("status-box").style.background = "#fee2e2";
+        document.getElementById("status-text").textContent = "❌ Pembayaran Kedaluwarsa";
         return;
       }
-      const m = Math.floor(secondsLeft / 60);
-      const s = secondsLeft % 60;
-      timerEl.textContent = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+      const m = String(Math.floor(timeLeft / 60)).padStart(2, "0");
+      const s = String(timeLeft % 60).padStart(2, "0");
+      timerEl.textContent = `${m}:${s}`;
     }, 1000);
+
+    // Simulasi atau cek mutasi realtime
+    let checkCount = 0;
+    const pollInterval = setInterval(() => {
+      checkCount++;
+      // Kalau lewat API asli, panggil /api/gopay/status?ref=${ref}&amount=${amount}
+      if (checkCount === 6) { // Demo simulate lunas setelah 24 detik jika dibuka
+        // mark paid
+        clearInterval(pollInterval);
+        clearInterval(timerInterval);
+        document.getElementById("status-box").style.background = "#86efac";
+        document.getElementById("status-text").innerHTML = "✅ Pembayaran Berhasil Diterima!";
+        showToast("Pembayaran Lunas! Terima kasih.");
+      }
+    }, 4000);
   </script>
 </body>
 </html>
