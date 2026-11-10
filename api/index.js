@@ -2,7 +2,7 @@ export default async function handler(req, res) {
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   return res.status(200).json({
     service: "gopay-qris-gateway",
-    host: "https://payment-kadokunsh.vercel.app",
+    host: "https://qris.kadokunn.com",
     auth: "REQUIRED header: x-internal-token: $INTERNAL_TOKEN (all routes except / & /health)",
     totalEndpoints: 4,
     endpoints: [
