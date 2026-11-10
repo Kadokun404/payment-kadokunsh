@@ -1,4 +1,8 @@
 {
-  "framework": "nextjs",
-  "regions": ["sin1"]
+  "version": 2,
+  "rewrites": [
+    { "source": "/", "destination": "/api/index" },
+    { "source": "/list", "destination": "/api/index" },
+    { "source": "/health", "destination": "/api/index" }
+  ]
 }
