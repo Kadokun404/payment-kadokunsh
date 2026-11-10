@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QRIS Merchant Kadokun — Gateway QRIS Realtime & Bebas Fee</title>
+  <meta name="description" content="Payment Gateway QRIS GoPay dinamis 0% fee tanpa potongan dengan mutasi otomatis 3 detik, auto-disbursement, dan API JSON super praktis.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="QRIS Merchant Kadokun — Gateway QRIS Bebas Biaya">
+  <meta property="og:description" content="Endpoint JSON Praktis, Tinggal Tap Tap! Mutasi otomatis dalam hitungan detik.">
+  <meta property="og:image" content="/thumbnail.jpg">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/kadokun-ui.css">
+  <!-- QRCode.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar-neobrutal">
+    <div class="nav-container">
+      <a href="/" class="logo-brand">
+        <img src="/favicon.png" alt="Logo" class="logo-icon">
+        <div class="logo-text">QRIS Merchant <span>Kadokun</span></div>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link active">Beranda</a></li>
+        <li><a href="#fitur" class="nav-link">Fitur Utama</a></li>
+        <li><a href="#demo" class="nav-link">Coba Demo</a></li>
+        <li><a href="/docs" class="nav-link">Dokumentasi API</a></li>
+        <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+      </ul>
+
+      <div style="display: flex; gap: 10px;">
+        <a href="/dashboard" class="btn-neobrutal btn-primary btn-sm">
+          <span>Buka Dashboard</span> 🚀
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN HERO SECTION -->
+  <main style="max-width: 1200px; margin: 0 auto; padding: 48px 24px; width: 100%;">
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: center; margin-bottom: 72px;">
+      
+      <!-- HERO CONTENT -->
+      <div>
+        <div style="display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap;">
+          <span class="badge-neobrutal badge-yellow rotate-left">⚡ 0% Fee Transaksi</span>
+          <span class="badge-neobrutal badge-sky">✨ Deteksi Mutasi 3 Detik</span>
+          <span class="badge-neobrutal badge-green rotate-right">🚀 Auto Payout</span>
+        </div>
+        
+        <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px; letter-spacing: -1px;">
+          Gateway QRIS Realtime, <span style="color: var(--color-electric); text-decoration: underline wavy var(--color-yellow) 4px;">Tinggal Tap Tap!</span>
+        </h1>
+        
+        <p style="font-size: 1.15rem; font-weight: 600; color: #475569; margin-bottom: 28px; line-height: 1.6;">
+          Terima pembayaran dari seluruh e-wallet & m-banking Indonesia tanpa potongan komisi sepeserpun. Lengkap dengan webhook instan, API JSON praktis, dan struk kasir otomatis!
+        </p>
+
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 32px;">
+          <a href="/dashboard" class="btn-neobrutal btn-primary btn-lg">
+            <span>Mulai Sekarang</span> ➔
+          </a>
+          <a href="/docs" class="btn-neobrutal btn-secondary btn-lg">
+            <span>Lihat Dokumentasi</span> 📖
+          </a>
+        </div>
+
+        <div style="display: flex; gap: 24px; align-items: center; border-top: 2px dashed #cbd5e1; padding-top: 20px;">
+          <div>
+            <div style="font-size: 1.5rem; font-weight: 900; color: var(--color-electric);">0% Fee</div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: #64748b;">Tanpa Potongan</div>
+          </div>
+          <div style="width: 2px; height: 36px; background: #cbd5e1;"></div>
+          <div>
+            <div style="font-size: 1.5rem; font-weight: 900; color: var(--color-black);">&lt; 3 Detik</div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: #64748b;">Respon Mutasi</div>
+          </div>
+          <div style="width: 2px; height: 36px; background: #cbd5e1;"></div>
+          <div>
+            <div style="font-size: 1.5rem; font-weight: 900; color: var(--color-green);">100%</div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: #64748b;">Dana Masuk Utuh</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HERO BANNER IMAGE CARD -->
+      <div class="card-neobrutal" style="padding: 12px; background: #ffffff;">
+        <img src="/thumbnail.jpg" alt="QRIS Merchant Kadokun Hero Banner" style="width: 100%; border-radius: 16px; border: 2px solid var(--color-black); display: block;">
+        <div style="padding: 16px 12px 6px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-weight: 800; font-size: 0.95rem;">⚡ Siap Digunakan untuk Web & Bot WA</span>
+          <span class="badge-neobrutal badge-electric">Live System</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FITUR UTAMA (NEOBRUTAL GRID) -->
+    <section id="fitur" style="margin-bottom: 84px;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="badge-neobrutal badge-sky rotate-left" style="margin-bottom: 12px;">Keunggulan Unggulan</span>
+        <h2 style="font-size: 2.3rem; font-weight: 900; letter-spacing: -0.5px;">Kenapa Memilih QRIS Merchant Kadokun?</h2>
+        <p style="font-weight: 600; color: #64748b; font-size: 1.05rem; margin-top: 6px;">Dirancang khusus oleh developer untuk kemudahan integrasi bisnis & toko online.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        
+        <!-- CARD 1 -->
+        <div class="card-neobrutal" style="padding: 28px;">
+          <div style="font-size: 2.4rem; margin-bottom: 14px;">💸</div>
+          <h3 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 8px;">0% Fee & Tanpa Biaya Tersembunyi</h3>
+          <p style="color: #475569; font-weight: 600; font-size: 0.95rem; line-height: 1.6;">
+            Tidak ada potongan persentase jahat 0.7% atau biaya admin per transaksi. Uang pembeli masuk utuh 100% ke saldo merchant kamu!
+          </p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card-neobrutal bg-sky" style="padding: 28px;">
+          <div style="font-size: 2.4rem; margin-bottom: 14px;">⚡</div>
+          <h3 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 8px;">Mutasi GoPay Otomatis 3 Detik</h3>
+          <p style="color: #475569; font-weight: 600; font-size: 0.95rem; line-height: 1.6;">
+            Begitu customer bayar lewat BCA, DANA, GoPay, OVO, atau ShopeePay, sistem langsung mendeteksi mutasi dan meneruskan webhook realtime.
+          </p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card-neobrutal" style="padding: 28px;">
+          <div style="font-size: 2.4rem; margin-bottom: 14px;">🚀</div>
+          <h3 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 8px;">Auto-Disbursement Ready</h3>
+          <p style="color: #475569; font-weight: 600; font-size: 0.95rem; line-height: 1.6;">
+            Tarik saldo kapanpun tanpa perlu nunggu berhari-hari. Saldo di dashboard langsung cair ke nomor e-wallet atau rekening bank kamu.
+          </p>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card-neobrutal" style="padding: 28px;">
+          <div style="font-size: 2.4rem; margin-bottom: 14px;">🧾</div>
+          <h3 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 8px;">Struk Digital Kasir HD</h3>
+          <p style="color: #475569; font-weight: 600; font-size: 0.95rem; line-height: 1.6;">
+            Otomatis membuat gambar struk kasir profesional (PNG/Base64) lengkap dengan rincian barang, total bayar, kasir, dan nomor referensi.
+          </p>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="card-neobrutal bg-yellow" style="padding: 28px;">
+          <div style="font-size: 2.4rem; margin-bottom: 14px;">🧩</div>
+          <h3 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 8px;">Integrasi JSON Tinggal Copas</h3>
+          <p style="color: #475569; font-weight: 600; font-size: 0.95rem; line-height: 1.6;">
+            Hanya butuh 1 HTTP POST untuk buat QRIS dan 1 webhook listener untuk terima pembayaran. Kompatibel dengan PHP, Node.js, Python, & Go!
+          </p>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="card-neobrutal" style="padding: 28px;">
+          <div style="font-size: 2.4rem; margin-bottom: 14px;">📱</div>
+          <h3 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 8px;">Hosted Checkout Page Cantik</h3>
+          <p style="color: #475569; font-weight: 600; font-size: 0.95rem; line-height: 1.6;">
+            Gak mau ribet bikin halaman bayar sendiri? Cukup redirect pembeli ke link checkout kami dengan timer 5 menit dan audio alert lunas otomatis.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIVE DEMO INTERAKTIF -->
+    <section id="demo" style="margin-bottom: 84px;">
+      <div class="card-neobrutal" style="padding: 36px; background: var(--color-white);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 36px; align-items: center;">
+          
+          <div>
+            <span class="badge-neobrutal badge-green rotate-left" style="margin-bottom: 12px;">Interactive Playground</span>
+            <h2 style="font-size: 2rem; font-weight: 900; margin-bottom: 12px;">Coba Generate QRIS Sekarang</h2>
+            <p style="font-weight: 600; color: #475569; margin-bottom: 24px; line-height: 1.6;">
+              Masukkan nominal yang ingin kamu tes. Sistem akan membuat QR dinamis realtime langsung di layar kamu!
+            </p>
+
+            <div style="margin-bottom: 18px;">
+              <label style="display: block; font-weight: 800; font-size: 0.9rem; margin-bottom: 8px;">Nominal Pembayaran (Rp):</label>
+              <input type="number" id="demo-amount" class="input-neobrutal" value="10000" min="1000" max="5000000" step="1000">
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+              <button class="btn-neobrutal btn-sm btn-secondary" onclick="document.getElementById('demo-amount').value = 5000">Rp 5.000</button>
+              <button class="btn-neobrutal btn-sm btn-secondary" onclick="document.getElementById('demo-amount').value = 15000">Rp 15.000</button>
+              <button class="btn-neobrutal btn-sm btn-secondary" onclick="document.getElementById('demo-amount').value = 50000">Rp 50.000</button>
+            </div>
+
+            <button id="btn-generate-demo" class="btn-neobrutal btn-primary" style="width: 100%;" onclick="generateDemoQR()">
+              <span>Generate Dynamic QRIS</span> ⚡
+            </button>
+          </div>
+
+          <!-- QR RESULT PREVIEW -->
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f8fafc; border: var(--border-solid); border-radius: var(--radius-lg); padding: 24px; text-align: center;">
+            <div id="qr-container" style="background: #ffffff; padding: 14px; border: 2px solid var(--color-black); border-radius: 14px; box-shadow: var(--shadow-sm); margin-bottom: 16px;">
+              <!-- QR generated here -->
+            </div>
+            <div id="qr-info" style="font-weight: 800; font-size: 1.1rem; color: var(--color-black);">Rp 10.000</div>
+            <div style="font-size: 0.82rem; font-weight: 700; color: #64748b; margin-top: 4px;">Ref ID: <span id="qr-ref">TRX-DEMO-991</span> • Berlaku 5 Menit</div>
+            <div style="margin-top: 12px;">
+              <span class="badge-neobrutal badge-sky">Scan Pakai GoPay / DANA / BCA</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DONASI & TRAKTEER SECTION -->
+    <section style="margin-bottom: 72px;">
+      <div class="card-neobrutal bg-electric" style="padding: 40px; text-align: center; color: #fff;">
+        <span class="badge-neobrutal badge-yellow rotate-right" style="margin-bottom: 14px;">Open & Free Forever</span>
+        <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 14px;">Dukung Server & Pengembangan</h2>
+        <p style="max-width: 650px; margin: 0 auto 28px; font-weight: 600; font-size: 1.05rem; opacity: 0.95; line-height: 1.6;">
+          Kami tidak memotong fee sepeserpun dari hasil penjualan tokomu. Jika gateway ini membantu bisnismu, kamu bisa traktir segelas kopi untuk developer Kadokun & Mommy Ara!
+        </p>
+        <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+          <a href="https://trakteer.id/kadokun" target="_blank" class="btn-neobrutal btn-yellow btn-lg">
+            <span>Trakteer Kopi</span> ☕
+          </a>
+          <a href="https://saweria.co/kadokun" target="_blank" class="btn-neobrutal btn-secondary btn-lg">
+            <span>Saweria</span> 💖
+          </a>
+          <button class="btn-neobrutal btn-secondary btn-lg" onclick="openModal('modal-qris-donasi')">
+            <span>Scan Donasi QRIS</span> 📱
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL DONASI QRIS -->
+  <div id="modal-qris-donasi" class="modal-overlay">
+    <div class="modal-card" style="text-align: center;">
+      <h3 style="font-size: 1.4rem; font-weight: 900; margin-bottom: 6px;">Traktir Mommy Ara & Kadokun ☕</h3>
+      <p style="font-weight: 600; color: #64748b; font-size: 0.9rem; margin-bottom: 20px;">Scan QRIS ini dengan nominal bebas via aplikasi bank atau e-wallet apa saja.</p>
+      
+      <div style="display: inline-block; background: #fff; border: var(--border-solid); border-radius: 16px; padding: 14px; box-shadow: var(--shadow-sm); margin-bottom: 16px;">
+        <img src="/qris-favicon.png" alt="QRIS Donasi" style="width: 220px; height: 220px; display: block; border-radius: 12px;">
+      </div>
+
+      <div style="font-weight: 800; font-size: 1rem; margin-bottom: 20px;">NMID: ID1020021183742 • Kadokun Store</div>
+      
+      <button class="btn-neobrutal btn-secondary" style="width: 100%;" onclick="closeModal('modal-qris-donasi')">
+        <span>Tutup</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer-neobrutal">
+    <div class="footer-container">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="/favicon.png" alt="Logo" style="width: 38px; height: 38px; border-radius: 10px; border: 2px solid var(--color-black);">
+        <div>
+          <div style="font-weight: 900; font-size: 1.05rem;">QRIS Merchant Kadokun</div>
+          <div style="font-size: 0.8rem; font-weight: 600; color: #64748b;">Endpoint JSON Praktis, Tinggal Tap Tap!</div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.88rem; font-weight: 700; color: #475569;">
+        Made with 💙 by <a href="https://kadokunn.com" target="_blank" style="color: var(--color-electric); text-decoration: none;">Kadokun</a> & Mommy Ara.
+      </div>
+
+      <div style="display: flex; gap: 16px;">
+        <a href="/docs" class="nav-link" style="font-size: 0.88rem;">Dokumentasi API</a>
+        <a href="/dashboard" class="nav-link" style="font-size: 0.88rem;">Dashboard</a>
+        <a href="https://whatsapp.com/channel/0029Vb9RLRs8PgsHbmafzM1e" target="_blank" class="nav-link" style="font-size: 0.88rem;">Saluran WA</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/kadokun-app.js"></script>
+  <script>
+    let qrDemoInstance = null;
+
+    function generateDemoQR() {
+      const amtInput = document.getElementById("demo-amount");
+      const val = parseInt(amtInput.value, 10) || 10000;
+      const ref = "TRX-" + Math.floor(100000 + Math.random() * 900000);
+      
+      document.getElementById("qr-info").textContent = formatRupiah(val);
+      document.getElementById("qr-ref").textContent = ref;
+
+      const container = document.getElementById("qr-container");
+      container.innerHTML = "";
+      
+      // Standar string EMVCo / Mock QRIS
+      const qrisString = `00020101021226670014ID.GO-JEK.WWW01189360091438921041920215G082914109283710303UMI51440014ID.LINKAJA.WWW0215LK0829141092837520458125303360540${String(val).length}${val}5802ID5913KADOKUN STORE6007BANDUNG61054011562070703A016304`;
+      
+      qrDemoInstance = new QRCode(container, {
+        text: qrisString,
+        width: 180,
+        height: 180,
+        colorDark: "#0f172a",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.M
+      });
+
+      showToast(`Dynamic QRIS untuk ${formatRupiah(val)} berhasil dibuat!`);
+    }
+
+    // Auto run on load
+    window.addEventListener("DOMContentLoaded", () => {
+      generateDemoQR();
+    });
+  </script>
+</body>
+</html>

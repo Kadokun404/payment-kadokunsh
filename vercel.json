@@ -1,7 +1,11 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/", "destination": "/api/index" },
+    { "source": "/dashboard", "destination": "/dashboard.html" },
+    { "source": "/docs", "destination": "/docs.html" },
+    { "source": "/pay", "destination": "/pay.html" },
+    { "source": "/pay/:id", "destination": "/pay.html" },
+    { "source": "/api-info", "destination": "/api/index" },
     { "source": "/list", "destination": "/api/index" },
     { "source": "/health", "destination": "/api/index" }
   ]
