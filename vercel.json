@@ -1,11 +1,4 @@
 {
-  "version": 2,
-  "rewrites": [
-    { "source": "/dashboard", "destination": "/dashboard.html" },
-    { "source": "/docs", "destination": "/docs.html" },
-    { "source": "/pay", "destination": "/pay.html" },
-    { "source": "/pay/:path*", "destination": "/pay.html" },
-    { "source": "/list", "destination": "/api/index" },
-    { "source": "/health", "destination": "/api/index" }
-  ]
+  "framework": "nextjs",
+  "regions": ["sin1"]
 }
